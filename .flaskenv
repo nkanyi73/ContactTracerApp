@@ -1,0 +1,2 @@
+FLASK_APP=contact_tracer.py
+FLASK_DEBUG=1

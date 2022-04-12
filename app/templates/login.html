@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container d-flex justify-content-center pt-5">
+      <div class="card">
+        <div class="card-body">
+            <form action="" method="post" novalidate>
+                {{form.hidden_tag() }}
+                <p class="card-text">
+                    {{form.username.label}} <br>
+                    {{form.username(size=32) }}
+                </p>
+                <p class="card-text">
+                    {{form.password.label}} <br>
+                    {{form.password(size=32) }}
+                </p>
+                <p class="card-text">
+                    {{form.remember_me()}} {{form.remember_me.label}}
+                </p>
+                <p class="card-text">{{form.submit()}}</p>
+            </form>
+        </div>
+      </div>
+    
+  </div>
+
+{% endblock %}
