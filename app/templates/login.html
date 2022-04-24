@@ -5,19 +5,36 @@
       <div class="card">
         <div class="card-body">
             <form action="" method="post" novalidate>
+                <!-- generate a hidden field that is used to protect against CSRF attacks -->
                 {{form.hidden_tag() }}
                 <p class="card-text">
+                    <!-- label -->
                     {{form.username.label}} <br>
+                    <!-- field -->
                     {{form.username(size=32) }}
+                    <!-- alert the user in case of any errors -->
+                    {% for error in form.username.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
                 </p>
                 <p class="card-text">
+                    <!-- label -->
                     {{form.password.label}} <br>
+                    <!-- field -->
                     {{form.password(size=32) }}
+                    <!-- alert the user in case of any errors -->
+                    {% for error in form.password.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
                 </p>
                 <p class="card-text">
+                    <!-- field -->
                     {{form.remember_me()}} {{form.remember_me.label}}
                 </p>
                 <p class="card-text">{{form.submit()}}</p>
+                <div class="card-footer">
+                    <p>New User? <a href="{{ url_for('register') }}">Click here to Register!</a></p>
+                </div>
             </form>
         </div>
       </div>

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container d-flex justify-content-center pt-5">
+      <div class="card">
+        <div class="card-body">
+            <form action="" method="post" novalidate>
+                <!-- generate a hidden field that is used to protect against CSRF attacks -->
+                {{form.hidden_tag() }}
+                <p class="card-text">
+                    <!-- label -->
+                    {{form.username.label}} <br>
+                    <!-- field -->
+                    {{form.username(size=32) }}
+                    <!-- alert the user in case of any errors -->
+                    {% for error in form.username.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p class="card-text">
+                    <!-- label -->
+                    {{form.email.label}} <br>
+                    <!-- field -->
+                    {{form.email(size=64) }}
+                    <!-- alert the user in case of any errors -->
+                    {% for error in form.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p class="card-text">
+                    <!-- label -->
+                    {{form.password.label}} <br>
+                    <!-- field -->
+                    {{form.password(size=32) }}
+                    <!-- alert the user in case of any errors -->
+                    {% for error in form.password.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p class="card-text">
+                    <!-- label -->
+                    {{form.password_2.label}} <br>
+                    <!-- field -->
+                    {{form.password_2(size=32) }}
+                    <!-- alert the user in case of any errors -->
+                    {% for error in form.password_2.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p class="card-text">{{form.submit()}}</p>
+            </form>
+        </div>
+      </div>
+    
+  </div>
+
+{% endblock %}
